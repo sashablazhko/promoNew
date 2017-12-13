@@ -1,4 +1,5 @@
-## Стартовый проект Gulp-SASS
+## Стартовый проект Gulp-SASS V 0.0.1
+#### добавил _responsive.scss _fonts.scss
 
 ### Подключил только jquery
 ### Подключил еще slick-slider но закоментил
