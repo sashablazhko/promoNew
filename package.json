@@ -24,6 +24,6 @@
     "imagemin-pngquant": "^5.0.1"
   },
   "dependencies": {
-    "jquery": "^3.2.1"
+    "jquery": "^3.3.1"
   }
 }
