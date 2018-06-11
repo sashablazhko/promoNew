@@ -9,9 +9,20 @@ var gulp       = require('gulp'), // Подключаем Gulp
 	imagemin     = require('gulp-imagemin'), // Подключаем библиотеку для работы с изображениями
 	pngquant     = require('imagemin-pngquant'), // Подключаем библиотеку для работы с png
 	cache        = require('gulp-cache'), // Подключаем библиотеку кеширования
-	autoprefixer = require('gulp-autoprefixer');// Подключаем библиотеку для автоматического добавления префиксов
+	autoprefixer = require('gulp-autoprefixer'),// Подключаем библиотеку для автоматического добавления префиксов
+	sourcemaps	 = require('gulp-sourcemaps');
 
 gulp.task('sass', function(){ // Создаем таск Sass
+	return gulp.src('app/scss/**/*.+(scss|sass)') // Берем источник
+		// .pipe(sourcemaps.init())
+		.pipe(sass().on('error', sass.logError)) // Passes it through a gulp-sass, log errors to console // .pipe(sass()) // Преобразуем Sass в CSS посредством gulp-sass
+		// .pipe(sourcemaps.write())
+		.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // Создаем префиксы
+		.pipe(gulp.dest('app/css')) // Выгружаем результата в папку app/css
+		.pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении
+});
+
+gulp.task('sassProd', function(){ // Создаем таск Sass
 	return gulp.src('app/scss/**/*.+(scss|sass)') // Берем источник
 		.pipe(sass().on('error', sass.logError)) // Passes it through a gulp-sass, log errors to console // .pipe(sass()) // Преобразуем Sass в CSS посредством gulp-sass
 		.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // Создаем префиксы
@@ -33,6 +44,9 @@ gulp.task('scripts', function() {
 		// 'app/libs/jquery/dist/jquery.min.js', // Берем jQuery
 		// 'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js' // Берем Magnific Popup
 		'node_modules/jquery/dist/jquery.js', // Берем jQuery
+		'node_modules/bootstrap/dist/js/bootstrap.js',
+    'node_modules/jquery.mmenu/dist/jquery.mmenu.all.js'
+    // 'node_modules/bootstrap/dist/js/bootstrap.js'
 		// 'node_modules/slick-carousel/slick/slick.js'
 		])
 		.pipe(concat('libs.js')) // Собираем их в кучу в новом файле libs.min.js
@@ -68,24 +82,24 @@ gulp.task('img', function() {
 		.pipe(gulp.dest('dist/img')); // Выгружаем на продакшен
 });
 
-gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function() {
+gulp.task('build', ['clean', 'img', 'sassProd', 'scripts'], function() {
 
 	var buildCss = gulp.src([ // Переносим библиотеки в продакшен
 		'app/css/main.css',
 		'app/css/libs.css'
 		])
-	.pipe(gulp.dest('dist/css'))
+	.pipe(gulp.dest('dist/css'));
 
 	var buildFonts = gulp.src('app/fonts/**/*') // Переносим шрифты в продакшен
-	.pipe(gulp.dest('dist/fonts'))
+	.pipe(gulp.dest('dist/fonts'));
 
-	// var buildJs = gulp.src('app/js/**/*') // Переносим скрипты в продакшен
-	// .pipe(gulp.dest('dist/js'))
-	var buildJs = gulp.src([
-		'app/js/libs.js',
-		'app/js/common.js',
-		]) // Переносим скрипты в продакшен
-	.pipe(gulp.dest('dist/js'))
+	var buildJs = gulp.src('app/js/**/*') // Переносим скрипты в продакшен
+	.pipe(gulp.dest('dist/js'));
+	// var buildJs = gulp.src([
+	// 	'app/js/libs.js',
+	// 	'app/js/common.js',
+	// 	]) // Переносим скрипты в продакшен
+	// .pipe(gulp.dest('dist/js'));
 
 	var buildHtml = gulp.src('app/*.html') // Переносим HTML в продакшен
 	.pipe(gulp.dest('dist'));
@@ -94,6 +108,6 @@ gulp.task('build', ['clean', 'img', 'sass', 'scripts'], function() {
 
 gulp.task('clear', function (callback) {
 	return cache.clearAll();
-})
+});
 
 gulp.task('default', ['watch']);
