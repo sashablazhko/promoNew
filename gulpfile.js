@@ -14,9 +14,9 @@ var gulp       = require('gulp'), // Подключаем Gulp
 
 gulp.task('sass', function(){ // Создаем таск Sass
 	return gulp.src('app/scss/**/*.+(scss|sass)') // Берем источник
-		.pipe(sourcemaps.init())
+		// .pipe(sourcemaps.init())
 		.pipe(sass().on('error', sass.logError)) // Passes it through a gulp-sass, log errors to console // .pipe(sass()) // Преобразуем Sass в CSS посредством gulp-sass
-		.pipe(sourcemaps.write())
+		// .pipe(sourcemaps.write())
 		.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // Создаем префиксы
 		.pipe(gulp.dest('app/css')) // Выгружаем результата в папку app/css
 		.pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении
@@ -43,7 +43,9 @@ gulp.task('scripts', function() {
 	return gulp.src([ // Берем все необходимые библиотеки
 		// 'app/libs/jquery/dist/jquery.min.js', // Берем jQuery
 		// 'app/libs/magnific-popup/dist/jquery.magnific-popup.min.js' // Берем Magnific Popup
-		'node_modules/jquery/dist/jquery.js' // Берем jQuery
+		'node_modules/jquery/dist/jquery.js', // Берем jQuery
+		'node_modules/bootstrap/dist/js/bootstrap.js',
+    'node_modules/jquery.mmenu/dist/jquery.mmenu.all.js'
     // 'node_modules/bootstrap/dist/js/bootstrap.js'
 		// 'node_modules/slick-carousel/slick/slick.js'
 		])

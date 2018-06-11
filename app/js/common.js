@@ -1,5 +1,7 @@
 $(function() {
 
-	// Пользовательские функции
+	$("#menu").mmenu({
+		wrappers: ["bootstrap4"]
+ });
 
 });
