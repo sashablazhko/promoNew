@@ -1,58 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Document</title>
-	<link rel="stylesheet" href="css/libs.css">
-	<link rel="stylesheet" href="css/main.css">
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,900&amp;subset=cyrillic" rel="stylesheet">
+  <link rel="stylesheet" href="css/libs.css">
+  <link rel="stylesheet" href="css/main.css">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
+
 <body>
 
-<div class="home">
-	<div class="container">
-    <div class="row">
-        <div class="col-12">
+  <!-- <div class="home">
 
-        <!-- The page -->
-        <div class="page">
-            <div class="header">
-                <a href="#menu">xxx</a>
-                Demo
-            </div>
-        </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12"> -->
+
+        <!-- <div id="my-header-1" class="mh-head Sticky">
+          <span class="mh-btns-left">
+            <a class="fa fa-bars" href="#menu"></a>
+          </span>
+          <span class="mh-text">demo</span>
+        </div> -->
         <!-- The menu -->
-        <nav id="menu">
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/about">About us</a>
-                    <ul>
-                        <li><a href="/about/history">History</a></li>
-                        <li><a href="/about/team">The team</a></li>
-                        <li><a href="/about/address">Our address</a></li>
-                    </ul>
-                </li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
-            </nav>
-            <!-- End The menu -->
-            <div>
-                yere some menu
-            </div>
-        </div>
-    </div>
-	</div>
-</div>
+        <!-- <nav id="menu">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About us</a>
+              <ul>
+                <li><a href="/about/history">History</a></li>
+                <li><a href="/about/team">The team</a></li>
+                <li><a href="/about/address">Our address</a></li>
+              </ul>
+            </li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav> -->
+        <!-- End The menu -->
 
-<script src="js/libs.js"></script>
-<script src="js/common.js"></script>
+
+
+        <!-- </div>
+      </div>
+    </div>
+
+  </div> -->
+
+  <div class="page__body">
+    <div class="page__wrapper">
+    
+      <!-- Header -->
+      <header class="page__hgroup">
+        <!-- Top Headline -->
+          <div class="page__headline">
+            <div class="page__container">
+    
+              <div class="row align-items-center row--ib row--ib-mid">
+                <div class="col-md-5">
+                    <nav class="list-nav">
+                      <ul class="list-nav__items">
+                          
+                        <li class="list-nav__item">
+                          <a class="list-nav__link" title="О нас" href="#">О нас</a>
+                        </li>
+                        <li class="list-nav__item">
+                          <a class="list-nav__link" title="Оплата и доставка" href="#">Оплата и доставка</a>
+                        </li>
+                        <li class="list-nav__item">
+                          <a class="list-nav__link" title="Брендирование" href="#">Брендирование</a>
+                        </li>
+                        <li class="list-nav__item">
+                          <a class="list-nav__link" title="Контакты" href="#">Контакты</a>
+                        </li>
+                        </ul>
+                      </nav>
+                </div>
+                <div class="col-md-2 text-center">
+                  <a href="#" class="logo">PROMO<span class="logo__bold">STOCK</span></a>
+                  
+                </div>
+                <div class="col-md-5">
+                  <div class="d-flex align-items-center justify-content-end header-right">
+                    <div class="header-right__aside header-right__aside__lang">
+                      <ul class="select_lang_one_callback">
+                        <li class="header-right__btn init">Рус</li>
+                        <i class="fa fa-caret-down select_lang_one_callback_icon" aria-hidden="true"></i>
+                        <div class="lang_call">
+                          <li data-value="1" class="header-right__btn header-right__btn-list selected">Рус</li>
+                          <li class="header-right__btn header-right__btn-list" data-value="2">En</li>
+                        </div>
+                      </ul>
+                    </div>
+                    <div class="header-right__aside">
+                      <a href="№" class="header-right__btn header-right__singin">
+                        Вход
+                      </a>
+                    </div>
+                    <div class="header-right__aside">
+                      <a href="№" class="header-right__btn header-right__reg">
+                        Регистрация
+                      </a>
+                    </div>
+                    <div class="header-right__aside">
+                      <a href="#" class="header-right__ico">
+                        <i class="header-right__cart"></i>
+                        <span class="header-right__badge">23</span>
+                      </a>
+                    </div>                    
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="page__header">
+            <div class="page__container">    
+              <div class="row align-items-center row--ib row--ib-mid">
+
+                <div class="col-md-5 d-flex align-items-center">
+                  <a href="#" class="header__callback">Заказать звонок</a>
+                  <div class="header__phone">
+                      <div class="header__number">
+
+                        <ul class="select_phone_one_callback">
+                          <li class="init">+38 (050) 1234567</li>
+                          <i class="fa fa-caret-down select_phone_one_callback_icon" aria-hidden="true"></i>
+                          <div class="phone_call">
+                            <li data-value="1" class="selected">+38 (050) 1234567</li>
+                            <li data-value="2">+38 (068) 8888888</li>
+                            <li data-value="2">+38 (063) 9999999</li>
+                          </div>
+                        </ul>
+
+                      </div>
+                      <div class="header-time">
+                          Пн-Пт 09:00-18:00, Сб, Вс выходной
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-7 d-flex justify-content-space-betwen">
+                  <div class="header-search">
+                    <form class="header-search__form" action="#">
+                      <input class="header-search__input" type="text" placeholder="Поиск по 30000 позиций">
+                      <button class="header-search__btn">Найти</button>
+                    </form>
+                  </div>
+                  <a href="#" class="header-self-btn header-compare">Сравнения <i class="header-self__compare"></i></a>
+                  <a href="#" class="header-self-btn header-none">Блокнот <i class="header-self__note"></i></a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+      </header>
+    </div>
+  </div>
+
+  <script src="js/libs.js"></script>
+  <script src="js/common.js"></script>
 
 </body>
+
 </html>
